@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ColorBlast</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <span class="logo">ColorBlast</span>
+    </div>
+    <div class="nav-right">
+      <div class="nav-info">Best: <span id="bestScore">0</span></div>
+      <div class="nav-info">Mode: <span id="modeLabel">Classic</span></div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="panel scoreboard">
+      <div class="score-block">
+        <h2>Score</h2>
+        <div id="score" class="score-value">0</div>
+      </div>
+      <div class="score-block">
+        <h2>Difficulty</h2>
+        <select id="difficultySelect">
+          <option value="easy">Easy</option>
+          <option value="normal" selected>Normal</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+      <div class="score-block">
+        <h2>Mode</h2>
+        <div class="mode-toggle">
+          <button id="classicBtn" class="mode-btn active">Classic</button>
+          <button id="timeBtn" class="mode-btn">Time Attack</button>
+        </div>
+        <div id="timer" class="timer">02:00</div>
+      </div>
+    </section>
+
+    <section class="panel game-area">
+      <div class="grid" id="grid"></div>
+      <div class="powerups">
+        <div class="powerup" data-type="clearLine">
+          <button id="clearLineBtn" class="power-btn">Clear Line</button>
+          <span class="count" id="clearLineCount">0</span>
+        </div>
+        <div class="powerup" data-type="pieceSwap">
+          <button id="swapBtn" class="power-btn">Piece Swap</button>
+          <span class="count" id="swapCount">0</span>
+        </div>
+        <div class="powerup" data-type="hint">
+          <button id="hintBtn" class="power-btn">Hint</button>
+          <span class="count" id="hintCount">0</span>
+        </div>
+        <div class="powerup" data-type="bomb">
+          <button id="bombBtn" class="power-btn">Bomb</button>
+          <span class="count" id="bombCount">0</span>
+        </div>
+      </div>
+      <p class="powerup-note">Use Clear Line on a row (click) or hold Alt while clicking to clear a column.</p>
+      <div class="pieces" id="pieces"></div>
+    </section>
+  </main>
+
+  <div id="comboMessage" class="combo-message"></div>
+
+  <div id="gameOver" class="overlay hidden">
+    <div class="overlay-content">
+      <h2>Game Over</h2>
+      <p>Your Score: <span id="finalScore">0</span></p>
+      <p>Best Score: <span id="finalBest">0</span></p>
+      <button id="restartBtn" class="primary-btn">Play Again</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
